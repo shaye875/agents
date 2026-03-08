@@ -1,18 +1,17 @@
-import { verifyPassword } from '../hash/bycript.js'
 import { promises as fs } from 'fs'
 
-export async function checkUser(agentCode, password) {
+export async function insertReport(report,userid) {
     try {
-        const data = await fs.readFile("./data/users.json", "utf8")
+        const data = await fs.readFile("./data/reports.json", "utf8")
         const arr = await JSON.parse(data)
-        for (let user of arr) {
-            if (user.agentCode === agentCode) {
-                if(await verifyPassword(password, user.passwordHash)){
-                    return user
-                }
-            }
-        }
-        return false
+        const id = arr.length+1
+        report["id"] = String(id)
+        report["createdAt"] = new Date()
+        report["sourceType"] = "form"
+        report["userId"] = userid
+        arr.push(report)
+        await fs.writeFile("./data/reports.json", JSON.stringify(arr))
+        return report
     } catch (err) {
         throw new Error("error read file", err)
     }

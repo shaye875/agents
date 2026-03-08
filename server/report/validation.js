@@ -29,3 +29,12 @@ export function isTypes(objKeys, user) {
     }
     return false
 }
+
+export function schema(arr){
+    for(let obj of arr){
+      if(Number(Object.keys(obj)[0]) !== obj[Object.keys(obj)[0]].size){
+        return false
+      }
+    }
+    return true
+}
