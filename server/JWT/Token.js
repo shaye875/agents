@@ -26,7 +26,6 @@ export function verifyToken(token){
     if(!result.id){
         return false
     }
-    console.log(result);
     return { id:result.id, agentCode:result.agentCode, fullName:result.fullName, role:result.role}
 }
 
