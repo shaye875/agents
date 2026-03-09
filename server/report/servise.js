@@ -21,8 +21,8 @@ export async function postReports(req, res) {
     res.json({ "false": "category or urgency not good" })
   }
   const { user } = req
-  if (req.files != null) {
-    body["imagePath"] = req.files.imagePath
+  if (req.file) {
+    body["imagePath"] = req.file.path
   }
   body["sourceType"] = "form"
   const result = await insertReport(body, user.id)
