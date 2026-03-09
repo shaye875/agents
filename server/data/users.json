@@ -1,1 +1,1 @@
-[{"id":"1","agentCode":"1234","fullName":"shaye mendelman","passwordHash":"$2a$10$jhlsu2TcEa.MQIX2B4OFR.lgL7qS7Au8D8ByPfV3heQnj3sWXll92","role":"admin","createdAt":"08:09"}]
+[{"id":"1","agentCode":"1234","fullName":"shaye mendelman","passwordHash":"$2a$10$jhlsu2TcEa.MQIX2B4OFR.lgL7qS7Au8D8ByPfV3heQnj3sWXll92","role":"admin","createdAt":"08:09"},{"agentCode":"12d345s6","fullName":"John Doe","role":"agent","passwordHash":"$2b$10$.aRASbif/FesJEZDjMqsme4nTpWTOMgYZ85sLLlWCfloIXL3Wjyj2","createdAt":"2026-03-09T13:43:50.991Z","id":"2"}]
