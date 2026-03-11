@@ -5,6 +5,8 @@ import type { ContextType, UserType } from './types/types'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Agent from './pages/agent'
 import NewReport from './pages/newReport'
+import CsvReport from './pages/csvReport'
+import ReportsAgent from './pages/reports.Agent'
 
 export const UseContext = createContext<ContextType | UserType | undefined>(undefined)
 
@@ -23,6 +25,8 @@ function App() {
           <Route path='/' element={<Login />} />
           <Route path='/agent' element={<Agent/>}/>
           <Route path='/newreport' element={<NewReport />}/> 
+          <Route path='/reportcsv' element={<CsvReport />}/>
+          <Route path='/agent/reports' element={<ReportsAgent />}/>
         </Routes>
       </UseContext>
     </BrowserRouter>

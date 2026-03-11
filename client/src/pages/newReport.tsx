@@ -3,7 +3,7 @@ import MainNewReport from "../componentas/mainNewReport"
 
 function NewReport() {
   return (
-    <div>
+    <div id="new">
       <MainNewReport />
     </div>
   )

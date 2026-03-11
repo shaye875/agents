@@ -22,7 +22,10 @@ export async function postReports(req, res) {
   }
   const { user } = req
   if (req.file) {
-    body["imagePath"] = req.file.path
+  
+
+    body["image"] = req.file.path
+    console.log(req.file);
   }
   body["sourceType"] = "form"
   const result = await insertReport(body, user.id)
@@ -79,7 +82,7 @@ export async function getReports(req,res){
     reports = await getReportsByUserId(id)
   }
   res.status(200)
-  res.json({Report:reports})
+  res.json(reports)
 }
 
 export async function reportById(req,res){

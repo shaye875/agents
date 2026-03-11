@@ -8,10 +8,11 @@ import { admin } from './admin/controller.js'
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use(express.static("public"))
 
 
 
-
+app.use("/uploads",express.static("uploads"))
 app.use("/auth",auth)
 app.use("/reports",reports)
 app.use("/admin/users",admin)

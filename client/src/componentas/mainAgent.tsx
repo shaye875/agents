@@ -9,10 +9,12 @@ function MainAgent() {
                 negativ("/newreport")
             }}>new report</button>
             <button className="btn" onClick={() => {
+                negativ("/reportcsv")
+            }}>csv report</button>
+            <button className="btn" onClick={() => {
                 negativ("/agent/reports")
-            }}>reports</button>
+            }}>my reports</button>
         </div>
-
     )
 }
 

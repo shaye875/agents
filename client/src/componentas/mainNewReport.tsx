@@ -7,10 +7,12 @@ function MainNewReport() {
     const [category, setCategory] = useState<string | object>("")
     const [urgency, setUrgency] = useState<string | object>("")
     const [message, setMessage] = useState<string>("")
-    const [imagePath, setImagePath] = useState<string>("")
+    const [image, setImage] = useState<File | null>(null)
     async function postReport(): Promise<void> {
         const formdata = new FormData()
-        formdata.append("imagePath", imagePath)
+        if (image !== null) {
+            formdata.append("image", image)
+        }
         formdata.append("category", category?.value)
         formdata.append("urgency", urgency?.value)
         formdata.append("message", message)
@@ -19,8 +21,7 @@ function MainNewReport() {
             headers: {
                 token: String(localStorage.getItem("token"))
             },
-            body: formdata,
-            redirect: "follow"
+            body: formdata
         })
         const result: object = await res.json()
         if (res.ok) {
@@ -29,7 +30,7 @@ function MainNewReport() {
             setAnswer("wrong")
         }
         console.log(result);
-        
+
     }
     const optionCategory = [
         { value: "intelligence", label: "intelligence" },
@@ -43,10 +44,10 @@ function MainNewReport() {
     ]
 
     return (
-        <div>
+        <div id="man">
             <div>
                 <p>category:</p>
-                <Select defaultValue={category}
+                <Select id="sel" defaultValue={category}
                     onChange={setCategory}
                     options={optionCategory}
                 />
@@ -54,24 +55,29 @@ function MainNewReport() {
             <div>
 
                 <p>urgency:</p>
-                <Select defaultValue={urgency}
+                <Select id="sel" defaultValue={urgency}
                     onChange={setUrgency}
                     options={urgencyOptions}
                 />
             </div>
             <div>
                 <p>message:</p>
-                <textarea rows={4} cols={50} onChange={(e) => setMessage(e.target.value)}></textarea>
+                <textarea rows={4} cols={50} onChange={(e:React.ChangeEvent<HTMLTextAreaElement, HTMLTextAreaElement>) => setMessage(e.target.value)}></textarea>
 
             </div>
             <div>
                 <p>image(optionly)</p>
-                <input type="file" onChange={(e) => setImagePath(e.target.value)} />
+                <input type="file" onChange={(e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+                    if (e.target.files !== null) {
+                        setImage(e.target.files[0])
+                    }
+
+                }} />
             </div>
-            <button onClick={() => {
+            <button className="btn" onClick={() => {
                 postReport()
             }}>submit</button>
-            <h4>{answer}</h4>
+            <h4 id="ans">{answer}</h4>
         </div>
     )
 }
