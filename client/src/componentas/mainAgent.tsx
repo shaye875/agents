@@ -1,14 +1,19 @@
-import { useContext } from "react"
-import { UseContext } from "../App"
-
+import { useNavigate } from "react-router"
 
 function MainAgent() {
-    const user = useContext(UseContext)
-  return (
-    <div>
-      <h1>welcome {user?.fullName}</h1>
-    </div>
-  )
+    const negativ = useNavigate()
+    return (
+
+        <div id="bts">
+            <button className="btn" onClick={() => {
+                negativ("/newreport")
+            }}>new report</button>
+            <button className="btn" onClick={() => {
+                negativ("/agent/reports")
+            }}>reports</button>
+        </div>
+
+    )
 }
 
 export default MainAgent

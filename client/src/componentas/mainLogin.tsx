@@ -1,10 +1,9 @@
-import { useContext, useState } from "react"
-import { UseContext } from "../App"
+import { useState } from "react"
+
 import { useNavigate } from "react-router"
 
 function MainLogin() {
     const negativ = useNavigate()
-    const { role, setRole ,setUser} = useContext(UseContext)
     const [agentCode, setAgentCode] = useState("")
     const [password, setPassword] = useState("")
     const [inSide, setInside] = useState(true)
@@ -25,34 +24,41 @@ function MainLogin() {
             }
             const res = await fetch("http://localhost:3000/auth/me", {
                 method: "GET",
-                headers: { token: localStorage.getItem("token") }
+                headers: { token: String(localStorage.getItem("token")) }
             })
             const user = await res.json()
-                setRole(user.role) 
-                setUser(user)  
-            if(user.role === "agent"){
+            let count:number = 0
+            while (localStorage.getItem("userr") !== JSON.stringify((user)) && count < 5) {
+                localStorage.setItem("userr",JSON.stringify( user))
+                console.log(user,localStorage.getItem("userr"))
+                
+                count+=1
+            }
+            if (user.role === "agent") {
                 negativ("/agent")
-            }    
+            }
         } else {
             setInside(false)
         }
     }
     return (
-        <div>
-            <h1>welcome</h1>
-            <div>
-                <p>Agent code:</p>
-                <input type="password" onChange={(e) => setAgentCode(e.target.value)} />
+        <div className="all">
+            <div id="try">
+                <h1>welcome</h1>
+                <div>
+                    <p>Agent code:</p>
+                    <input type="password" onChange={(e) => setAgentCode(e.target.value)} />
+                </div>
+                <div>
+                    <p>password:</p>
+                    <input type="password" onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                <button onClick={() => {
+                    fetchLogin(agentCode, password)
+
+                }}>submit</button>
+                {!inSide && <h4>wrong!!! try agein</h4>}
             </div>
-            <div>
-                <p>password:</p>
-                <input type="password" onChange={(e) => setPassword(e.target.value)} />
-            </div>
-            <button onClick={() => {
-                fetchLogin(agentCode, password)
-        
-            }}>submit</button>
-            {!inSide && <h4>wrong!!! try agein</h4>}
         </div>
     )
 }

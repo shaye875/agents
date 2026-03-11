@@ -1,9 +1,11 @@
+import HeaderAgent from "../componentas/headerAgent"
 import MainAgent from "../componentas/mainAgent"
 
 
 function Agent() {
   return (
-    <div>
+    <div  id="mag">
+      <HeaderAgent />
       <MainAgent />
     </div>
   )

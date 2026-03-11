@@ -5,7 +5,7 @@ const upload =  multer({dest: "uploads/"})
 
 export const reports = express()
 
-reports.post("",upload.single("imagePath"),midllwareToken,postReports)
+reports.post("",midllwareToken,upload.single("imagePath"),postReports)
 
 reports.post("/csv",midllwareToken,upload.single("file"),reportCsv)
 
