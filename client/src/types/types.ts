@@ -1,17 +1,9 @@
-import type { Dispatch, SetStateAction } from "react"
 
-export type UserType = {
-    role: string
-    id: string
-    agentCode: string
-    fullName: string
-}
+
 
 export type ContextType = {
     role: string
     setRole: (role: string) => void
-    user: object
-    setUser: Dispatch<SetStateAction<UserType>>
 }
 
 export type Report = {
@@ -26,15 +18,22 @@ export type Report = {
 }
 
 export type User = {
-    id:string
-    agentCode:string
-    fullName:string
-    passwordHash:string
-    role:string
-    createdAt:string
+    id: string
+    agentCode: string
+    fullName: string
+    passwordHash: string
+    role: string
+    createdAt: string
 }
 
 export type Option = {
-    label:string
-    value:string
+    label: string
+    value: string
+}
+
+export type UserMe = {
+    id: string
+    agentCode: string
+    fullName: string
+    role: string
 }

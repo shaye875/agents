@@ -165,3 +165,25 @@ img{
     justify-content: center;
     align-items: center;
 }
+
+.int{
+    width: 7rem;
+    height: 2.2rem;
+}
+
+.sec{
+    display: flex;
+    align-items: center;
+ 
+}
+
+#her{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+#rep{
+    margin-top: 1rem;
+}

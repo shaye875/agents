@@ -20,7 +20,7 @@ function MainUsers() {
         getUsers()
     }, [])
     return (
-        <div id="mau">
+        <div>
             <button id="bnw" className="bta" onClick={() => {
                 negativ("/newuser")
             }}>new</button>
