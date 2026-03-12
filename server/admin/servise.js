@@ -33,7 +33,7 @@ export async function login(req, res) {
     res.status(400)
     return res.json({"false":"role must bu admin or agent"})
   }
-  if(!body.password){
+  if(body.password === ""){
     body["passwordHash"] = await hashPassword(enAtbash(body.fullName))
   }else{
     body["passwordHash"] = await hashPassword(body.password)   
@@ -49,7 +49,7 @@ export async function login(req, res) {
 
 export async function get(req,res){
   res.status(200)
-  res.json({users:await getAll()})
+  res.json(await getAll())
 }
 
 

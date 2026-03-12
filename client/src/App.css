@@ -112,3 +112,56 @@ img{
     object-fit: cover;
     width: 10rem;
 }
+
+#adm{
+    background-color: gray;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bta{
+    width: 9rem;
+    height: 2.5rem;
+    background-color: black;
+    color: white;
+    border: 0;
+    border-radius: 0.2rem;
+}
+
+#bas{
+    display: flex;
+    justify-content: space-between;
+    width: 23rem;
+}
+
+#bnw{
+  position: relative;
+  left: 40%;
+  top: 0.5rem;
+}
+
+#tus{
+ margin-top: 1rem;
+}
+
+#mau{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nes{
+    background-color: gray;
+    height: 97vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

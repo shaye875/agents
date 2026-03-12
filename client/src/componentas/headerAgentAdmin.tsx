@@ -1,8 +1,9 @@
+import type { UserType } from "../types/types"
 
 
 
 function HeaderAgent() {
-   const user:any = JSON.parse(localStorage.getItem("userr"))
+   const user:UserType = JSON.parse(String(localStorage.getItem("userr")))
   return (
     <div id="hea">
       <h1>welcome {user?.fullName}</h1>

@@ -36,6 +36,8 @@ function MainLogin() {
             }
             if (user.role === "agent") {
                 negativ("/agent")
+            }else{
+                negativ("/admin")
             }
         } else {
             setInside(false)

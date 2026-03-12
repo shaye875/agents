@@ -1,11 +1,18 @@
 import { useState } from "react"
 import Select from 'react-select'
+import type { Option } from "../types/types"
 
 
 function MainNewReport() {
     const [answer, setAnswer] = useState<string | undefined>(undefined)
-    const [category, setCategory] = useState<string | object>("")
-    const [urgency, setUrgency] = useState<string | object>("")
+    const [category, setCategory] = useState<Option|null>({
+        label:"",
+        value:""
+    })
+    const [urgency, setUrgency] = useState<Option|null>({
+        label:"",
+        value:""
+    })
     const [message, setMessage] = useState<string>("")
     const [image, setImage] = useState<File | null>(null)
     async function postReport(): Promise<void> {
@@ -13,8 +20,8 @@ function MainNewReport() {
         if (image !== null) {
             formdata.append("image", image)
         }
-        formdata.append("category", category?.value)
-        formdata.append("urgency", urgency?.value)
+        formdata.append("category", String(category?.value))
+        formdata.append("urgency", String(urgency?.value))
         formdata.append("message", message)
         const res = await fetch("http://localhost:3000/reports", {
             method: "POST",

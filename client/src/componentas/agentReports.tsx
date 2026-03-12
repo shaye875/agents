@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react"
+import type { Report } from "../types/types"
 
-type Report = {
-    id: string
-    userId: string
-    category: string
-    urgency: string
-    message: string
-    image: string | undefined
-    sourceType: string
-    createdAt: string
-}
+
 
 
 function AgentReports() {

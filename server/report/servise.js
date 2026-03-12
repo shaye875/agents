@@ -22,10 +22,7 @@ export async function postReports(req, res) {
   }
   const { user } = req
   if (req.file) {
-  
-
     body["image"] = req.file.path
-    console.log(req.file);
   }
   body["sourceType"] = "form"
   const result = await insertReport(body, user.id)

@@ -1,4 +1,4 @@
-import HeaderAgent from "../componentas/headerAgent"
+import HeaderAgent from "../componentas/headerAgentAdmin"
 import MainAgent from "../componentas/mainAgent"
 
 
