@@ -13,32 +13,23 @@ import Users from './pages/users'
 import NewUswr from './pages/newUswr'
 import AdminReport from './pages/adminReport'
 import { PreconnectAdmin, Protected } from './componentas/protektedRute'
-// import { preconnect } from 'react-dom'
-
-
-
-
 
 function App() {
-
-
   return (
     <BrowserRouter>
-
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/agent' element={<Agent />} />
         <Route element={<Protected />}>
-       
+          <Route path='/agent' element={<Agent />} />
           <Route path='/newreport' element={<NewReport />} />
           <Route path='/reportcsv' element={<CsvReport />} />
           <Route path='/agent/reports' element={<ReportsAgent />} />
         </Route>
         <Route element={<PreconnectAdmin />}>
-        <Route path='/admin' element={<Admin />} />
-        <Route path='/users' element={<Users />} />
-        <Route path='/newuser' element={<NewUswr />} />
-        <Route path='/admin/reports' element={<AdminReport />} />
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/users' element={<Users />} />
+          <Route path='/newuser' element={<NewUswr />} />
+          <Route path='/admin/reports' element={<AdminReport />} />
         </Route>
 
 
