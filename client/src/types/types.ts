@@ -1,3 +1,4 @@
+import type { JSX } from "react"
 
 
 
@@ -36,4 +37,8 @@ export type UserMe = {
     agentCode: string
     fullName: string
     role: string
+}
+
+export type ChildrenType = {
+    children:JSX.Element |string|JSX.Element[]|any
 }

@@ -9,7 +9,7 @@ export function getToken( id, agentCode, fullName, role) {
         role:role
     },
         process.env.JWT_SECRET,
-        { expiresIn:"10h" }
+        { expiresIn:"1min" }
     )
     return token
 }
